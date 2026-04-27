@@ -150,9 +150,8 @@ server.on("error", (error) => {
   process.exit(1);
 });
 
-server.listen(PORT, HOST, () => {
+server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-});
 
   if (process.env.JUSTICEBRIDGE_SMOKE_EXIT === "1") {
     server.close(() => {
