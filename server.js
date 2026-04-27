@@ -5,7 +5,7 @@ const crypto = require("crypto");
 const { generateComplaint, generateEscalation } = require("./public/generator");
 
 const PORT = Number(process.env.PORT || 3000);
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = "0.0.0.0";
 const PUBLIC_DIR = path.join(__dirname, "public");
 const sessions = new Map();
 
@@ -151,9 +151,8 @@ server.on("error", (error) => {
 });
 
 server.listen(PORT, HOST, () => {
-  const url = `http://localhost:${PORT}`;
-  console.log(`JusticeBridge MVP running at ${url}`);
-  console.log(`Localhost URL: ${url}`);
+    console.log(`Server running on port ${PORT}`);
+});
 
   if (process.env.JUSTICEBRIDGE_SMOKE_EXIT === "1") {
     server.close(() => {
